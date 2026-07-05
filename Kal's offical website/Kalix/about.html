@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KALIX — About Us</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div class="loader">
+    <div class="loader-text glitch">INITIALIZING KALIX CORE...</div>
+  </div>
+
+  <!-- PARTICLES CANVAS -->
+  <canvas id="particles"></canvas>
+
+  <div class="bg"></div>
+  <div class="grid"></div>
+
+  <nav>
+    <a href="index.html" class="logo glitch">KALIX</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="market.html">Market</a></li>
+      <li id="authSlot"><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <section class="reveal hero-about">
+    <div class="kicker">Kalix // Intelligence Division</div>
+    <h1 class="glitch">We build market intelligence</h1>
+    <p>
+      A neural financial system that evolves with global trading behavior in real time.
+    </p>
+  </section>
+
+  <section class="reveal stats" id="stats"></section>
+
+  <section class="reveal story">
+    <div class="story-text">
+      <h2>Live market consciousness</h2>
+      <p>AI continuously interprets global sentiment shifts.</p>
+    </div>
+
+    <div class="chart-box">
+      <h3>Real-Time Flow</h3>
+      <canvas id="liveChart"></canvas>
+    </div>
+  </section>
+
+  <section class="reveal team">
+    <h2>Engineering division</h2>
+
+    <div class="team-grid">
+
+      <div class="team-card hover-sound">
+        <img src="images/ai-core.jpg" alt="AI Core Engine">
+        <h3>AI CORE ENGINE</h3>
+        <p>
+          Our AI Core Engine powers intelligent market analysis,
+          predictive trading algorithms, and automated risk detection.
+          Built with advanced machine learning systems, it processes
+          real-time financial data at ultra-high speed to deliver
+          accurate insights and smarter investment strategies.
+        </p>
+      </div>
+
+      <div class="team-card hover-sound">
+        <img src="images/quant-systems.jpg" alt="Quant Systems">
+        <h3>QUANT SYSTEMS</h3>
+        <p>
+          Quant Systems develops high-frequency trading models,
+          portfolio optimization frameworks, and volatility prediction
+          tools. Using mathematical modeling and statistical analysis,
+          the division helps maximize efficiency while minimizing
+          financial exposure across global markets.
+        </p>
+      </div>
+
+      <div class="team-card hover-sound">
+        <img src="images/data-neural-net.jpg" alt="Data Neural Net">
+        <h3>DATA NEURAL NET</h3>
+        <p>
+          Data Neural Net manages large-scale financial datasets,
+          blockchain analytics, and neural network infrastructure.
+          The team transforms complex raw market information into
+          structured intelligence that drives real-time decision-making
+          across all trading systems.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer reveal">
+    <div class="footer-content">
+
+      <h2 class="glitch">Contact Kalix.io</h2>
+
+      <p>
+        Connect with the next generation financial intelligence network.
+      </p>
+
+      <div class="footer-grid">
+
+        <div class="footer-card">
+          <h3>EMAIL</h3>
+          <p>khalid_basel@hotmail.com</p>
+        </div>
+
+        <div class="footer-card">
+          <h3>PHONE</h3>
+          <p>+965 9558 7671</p>
+        </div>
+
+        <div class="footer-card">
+          <h3>LOCATION</h3>
+          <p>Kuwait City — Digital Operations Hub</p>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        © 2026 KALIX — Neural Financial Systems
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="js/about.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth-nav.js"></script>
+</body>
+</html>

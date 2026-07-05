@@ -1,0 +1,213 @@
+/* ============================================================
+   KALIX — MARKET (market.html)
+   Requires css/base.css loaded first.
+   ============================================================ */
+
+.market-page{
+  max-width:1240px;
+  margin:0 auto;
+  padding:170px 6% 110px;
+}
+
+.market-page .page-head{
+  margin-bottom:56px;
+}
+
+.market-page .kicker{
+  font-family:var(--font-mono);
+  font-size:.74rem;
+  font-weight:500;
+  letter-spacing:.34em;
+  text-transform:uppercase;
+  color:var(--cyan);
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:22px;
+}
+
+.market-page .kicker::before{
+  content:'';
+  width:36px; height:1px;
+  background:var(--cyan);
+  box-shadow:0 0 8px var(--cyan-glow);
+}
+
+.market-page h1{
+  font-size:clamp(2.4rem, 4.6vw, 3.8rem);
+  font-weight:700;
+  letter-spacing:-.02em;
+  line-height:1.05;
+  background:linear-gradient(180deg, #ffffff 35%, #9fd8ef 100%);
+  background-clip:text;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.market-page .page-head p{
+  margin-top:18px;
+  color:var(--muted);
+  font-size:1.05rem;
+  max-width:56ch;
+  line-height:1.7;
+}
+
+/* ---------------- LEDGER HEADER ---------------- */
+
+.ledger-bar{
+  display:flex;
+  gap:32px;
+  flex-wrap:wrap;
+  padding:14px 0;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  margin-bottom:36px;
+  font-family:var(--font-mono);
+  font-size:.7rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--faint);
+}
+
+.ledger-bar .live{
+  color:var(--up);
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.ledger-bar .live::before{
+  content:'';
+  width:7px; height:7px;
+  border-radius:50%;
+  background:var(--up);
+  box-shadow:0 0 10px rgba(65, 230, 158, .7);
+  animation:beacon 2s infinite ease-in-out;
+}
+
+/* ---------------- STOCK CARDS ---------------- */
+
+.stocks-container{
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+}
+
+.stock-card{
+  display:grid;
+  grid-template-columns:minmax(0, 300px) minmax(0, 1fr);
+  background:var(--panel);
+  border:1px solid var(--line);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  overflow:hidden;
+  transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+
+.stock-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--line-strong);
+  box-shadow:0 24px 48px rgba(0, 0, 0, .45), 0 0 0 1px rgba(95, 224, 255, .12);
+}
+
+.stock-card img{
+  width:100%;
+  height:100%;
+  min-height:220px;
+  object-fit:cover;
+  filter:saturate(1.05);
+  border-right:1px solid var(--line);
+}
+
+.stock-info{
+  padding:30px 34px 26px;
+  display:grid;
+  grid-template-columns:minmax(0, 1fr) minmax(0, 1.2fr);
+  grid-template-rows:auto auto 1fr;
+  column-gap:36px;
+  align-items:start;
+}
+
+.stock-info h2{
+  grid-column:1;
+  font-size:1.45rem;
+  font-weight:700;
+  letter-spacing:.02em;
+  margin-bottom:4px;
+}
+
+.stock-info .sym{
+  grid-column:1;
+  font-family:var(--font-mono);
+  font-size:.7rem;
+  letter-spacing:.26em;
+  text-transform:uppercase;
+  color:var(--faint);
+  margin-bottom:20px;
+}
+
+.stock-price{
+  grid-column:1;
+  font-family:var(--font-mono);
+  font-size:2.3rem;
+  font-weight:600;
+  letter-spacing:-.01em;
+  margin-bottom:6px;
+  transition:color .3s ease;
+}
+
+.stock-price.flash-up{ color:var(--up); }
+.stock-price.flash-down{ color:var(--down); }
+
+.up, .down{
+  font-family:var(--font-mono);
+  font-size:.85rem;
+  font-weight:500;
+  letter-spacing:.08em;
+}
+
+.up{ color:var(--up); }
+.down{ color:var(--down); }
+
+.chart{
+  grid-column:2;
+  grid-row:1 / span 4;
+  align-self:stretch;
+  display:flex;
+  align-items:stretch;
+  border-left:1px solid var(--line);
+  padding-left:28px;
+  min-height:160px;
+}
+
+.chart canvas{
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media(max-width:900px){
+  .stock-card{ grid-template-columns:1fr; }
+  .stock-card img{
+    min-height:180px;
+    max-height:220px;
+    border-right:none;
+    border-bottom:1px solid var(--line);
+  }
+  .stock-info{
+    grid-template-columns:1fr;
+    padding:24px;
+  }
+  .chart{
+    grid-column:1;
+    grid-row:auto;
+    border-left:none;
+    padding-left:0;
+    border-top:1px solid var(--line);
+    padding-top:20px;
+    margin-top:20px;
+    min-height:120px;
+  }
+}

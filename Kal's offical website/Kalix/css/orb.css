@@ -1,0 +1,51 @@
+/* ============================================================
+   KALIX — NEURAL CORE ORB (home hero)
+   Replaces the static hero image with a living canvas orb.
+   Load AFTER css/style.css. Drawn by js/orb.js.
+   ============================================================ */
+
+.orb-stage{
+  position:relative;
+  width:100%;
+  aspect-ratio:4 / 5;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 55%, rgba(18, 90, 140, .16), transparent 70%),
+    linear-gradient(180deg, rgba(7, 13, 26, .65), rgba(4, 6, 13, .9));
+}
+
+.orb-stage canvas{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  display:block;
+  cursor:pointer;
+}
+
+/* soft ambient bleed behind the canvas orb */
+.orb-ambient{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:62%;
+  aspect-ratio:1;
+  transform:translate(-50%, -50%);
+  border-radius:50%;
+  background:radial-gradient(circle,
+    rgba(95, 224, 255, .16) 0%,
+    rgba(24, 153, 194, .08) 45%,
+    transparent 70%);
+  filter:blur(30px);
+  animation:orbAmbient 5.2s infinite ease-in-out;
+  pointer-events:none;
+}
+
+@keyframes orbAmbient{
+  0%, 100%{ transform:translate(-50%, -50%) scale(1); opacity:.75; }
+  50%{ transform:translate(-50%, -50%) scale(1.12); opacity:1; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .orb-ambient{ animation:none; }
+}

@@ -1,0 +1,369 @@
+/* ============================================================
+   KALIX — ABOUT (about.html)
+   Requires css/base.css loaded first.
+   ============================================================ */
+
+/* ---------------- LOADER ---------------- */
+
+.loader{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--bg-0);
+  animation:loaderOut .6s ease 1.6s forwards;
+}
+
+.loader-text{
+  font-family:var(--font-mono);
+  font-size:.85rem;
+  letter-spacing:.4em;
+  text-transform:uppercase;
+  color:var(--cyan);
+  animation:beacon 1s infinite ease-in-out;
+}
+
+@keyframes loaderOut{
+  to{ opacity:0; visibility:hidden; }
+}
+
+/* ---------------- PARTICLES ---------------- */
+
+#particles{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  opacity:.5;
+  pointer-events:none;
+}
+
+/* ---------------- GLITCH (subtle flicker) ---------------- */
+
+.glitch{
+  animation:flicker 7s infinite;
+}
+
+@keyframes flicker{
+  0%, 91%, 94%, 100%{ opacity:1; }
+  92%, 93%{ opacity:.55; }
+}
+
+/* ---------------- REVEAL ---------------- */
+
+.reveal{
+  opacity:0;
+  transform:translateY(48px);
+  transition:opacity .9s ease, transform .9s ease;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ---------------- LAYOUT ---------------- */
+
+.hero-about,
+.stats,
+.story,
+.team{
+  max-width:1240px;
+  margin:0 auto;
+  padding-left:6%;
+  padding-right:6%;
+}
+
+/* ---------------- HERO ---------------- */
+
+.hero-about{
+  padding-top:210px;
+  padding-bottom:90px;
+  max-width:1000px;
+  text-align:left;
+}
+
+.hero-about .kicker{
+  font-family:var(--font-mono);
+  font-size:.74rem;
+  font-weight:500;
+  letter-spacing:.34em;
+  text-transform:uppercase;
+  color:var(--cyan);
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:24px;
+}
+
+.hero-about .kicker::before{
+  content:'';
+  width:36px; height:1px;
+  background:var(--cyan);
+  box-shadow:0 0 8px var(--cyan-glow);
+}
+
+.hero-about h1{
+  font-size:clamp(2.6rem, 5vw, 4.4rem);
+  font-weight:700;
+  line-height:1.04;
+  letter-spacing:-.02em;
+  margin-bottom:26px;
+  background:linear-gradient(180deg, #ffffff 35%, #9fd8ef 100%);
+  background-clip:text;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero-about p{
+  font-size:1.15rem;
+  line-height:1.75;
+  color:var(--muted);
+  max-width:56ch;
+  text-wrap:pretty;
+}
+
+/* ---------------- STATS ---------------- */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  max-width:1140px;
+  margin-bottom:110px;
+  padding:0;
+}
+
+.stat-card{
+  background:var(--bg-1);
+  padding:34px 30px;
+  transition:background .3s ease;
+}
+
+.stat-card:hover{ background:var(--bg-2); }
+
+.stat-card h2{
+  font-family:var(--font-mono);
+  font-size:2rem;
+  font-weight:600;
+  color:var(--cyan);
+  margin-bottom:8px;
+}
+
+.stat-card p{
+  font-family:var(--font-mono);
+  font-size:.7rem;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--faint);
+}
+
+/* ---------------- STORY / CHART ---------------- */
+
+.story{
+  display:grid;
+  grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);
+  gap:64px;
+  align-items:center;
+  margin-bottom:130px;
+}
+
+.story-text h2{
+  font-size:2.1rem;
+  font-weight:700;
+  letter-spacing:-.01em;
+  line-height:1.15;
+  margin-bottom:20px;
+}
+
+.story-text p{
+  font-size:1.05rem;
+  line-height:1.75;
+  color:var(--muted);
+  max-width:46ch;
+}
+
+.chart-box{
+  background:var(--panel);
+  border:1px solid var(--line);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  padding:26px;
+  position:relative;
+}
+
+.chart-box::before{
+  content:'';
+  position:absolute;
+  top:-1px; right:-1px;
+  width:20px; height:20px;
+  border-top:1px solid var(--cyan);
+  border-right:1px solid var(--cyan);
+}
+
+.chart-box h3{
+  font-family:var(--font-mono);
+  font-size:.72rem;
+  font-weight:600;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:20px;
+}
+
+.chart-box canvas{
+  width:100%;
+  display:block;
+}
+
+/* ---------------- TEAM / DIVISIONS ---------------- */
+
+.team{
+  margin-bottom:130px;
+}
+
+.team > h2{
+  font-size:2.1rem;
+  font-weight:700;
+  letter-spacing:-.01em;
+  margin-bottom:40px;
+}
+
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+  gap:22px;
+}
+
+.team-card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  overflow:hidden;
+  transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+
+.team-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--line-strong);
+  box-shadow:0 24px 48px rgba(0, 0, 0, .45), 0 0 0 1px rgba(95, 224, 255, .12);
+}
+
+.team-card img{
+  width:100%;
+  aspect-ratio:16 / 10;
+  object-fit:cover;
+  display:block;
+  border-bottom:1px solid var(--line);
+  filter:saturate(1.05);
+  transition:filter .3s ease;
+}
+
+.team-card:hover img{
+  filter:saturate(1.15) brightness(1.06);
+}
+
+.team-card h3{
+  font-family:var(--font-mono);
+  font-size:.8rem;
+  font-weight:600;
+  letter-spacing:.26em;
+  text-transform:uppercase;
+  color:var(--cyan);
+  padding:24px 26px 0;
+}
+
+.team-card p{
+  padding:14px 26px 28px;
+  font-size:.98rem;
+  line-height:1.7;
+  color:var(--muted);
+  text-wrap:pretty;
+}
+
+/* ---------------- FOOTER / CONTACT ---------------- */
+
+.footer{
+  border-top:1px solid var(--line);
+  padding:90px 6% 0;
+  font-family:var(--font-display);
+  font-size:1rem;
+  letter-spacing:normal;
+  text-transform:none;
+  color:var(--ink);
+}
+
+.footer-content{
+  max-width:1140px;
+  margin:0 auto;
+  text-align:center;
+}
+
+.footer-content h2{
+  font-size:2rem;
+  font-weight:700;
+  letter-spacing:-.01em;
+  margin-bottom:14px;
+}
+
+.footer-content > p{
+  color:var(--muted);
+  font-size:1.05rem;
+  margin-bottom:48px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  text-align:left;
+}
+
+.footer-card{
+  background:var(--bg-1);
+  padding:28px 30px;
+  transition:background .3s ease;
+}
+
+.footer-card:hover{ background:var(--bg-2); }
+
+.footer-card h3{
+  font-family:var(--font-mono);
+  font-size:.68rem;
+  font-weight:600;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--cyan);
+  margin-bottom:10px;
+}
+
+.footer-card p{
+  font-family:var(--font-mono);
+  font-size:.92rem;
+  color:var(--ink);
+  overflow-wrap:anywhere;
+}
+
+.footer-bottom{
+  padding:44px 0;
+  margin-top:60px;
+  border-top:1px solid var(--line);
+  font-family:var(--font-mono);
+  font-size:.72rem;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--faint);
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media(max-width:900px){
+  .story{ grid-template-columns:1fr; gap:40px; }
+  .hero-about{ padding-top:190px; }
+}

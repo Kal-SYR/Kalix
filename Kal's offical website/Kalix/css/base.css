@@ -1,0 +1,255 @@
+/* ============================================================
+   KALIX — BASE DESIGN SYSTEM
+   Shared across every page. Load BEFORE the page stylesheet.
+   Type:   Space Grotesk (display / UI) · IBM Plex Mono (data)
+   Palette: deep-space navy · single cyan accent · ember orange
+   ============================================================ */
+
+:root{
+  --bg-0:#04060d;
+  --bg-1:#070d1a;
+  --bg-2:#0a1322;
+  --panel:rgba(13, 22, 40, .55);
+  --panel-solid:#0b1424;
+  --line:rgba(126, 165, 214, .16);
+  --line-strong:rgba(126, 165, 214, .30);
+  --ink:#e9f0fa;
+  --muted:#8fa0b8;
+  --faint:#5c6b84;
+  --cyan:#5fe0ff;
+  --cyan-deep:#1899c2;
+  --cyan-glow:rgba(95, 224, 255, .35);
+  --ember:#ff9a3d;
+  --up:#41e69e;
+  --down:#ff5d7a;
+  --font-display:'Space Grotesk', sans-serif;
+  --font-mono:'IBM Plex Mono', monospace;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  background:var(--bg-0);
+  color:var(--ink);
+  font-family:var(--font-display);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+}
+
+::selection{ background:var(--cyan); color:#04121a; }
+
+::-webkit-scrollbar{ width:10px; }
+::-webkit-scrollbar-track{ background:var(--bg-0); }
+::-webkit-scrollbar-thumb{
+  background:#1b2942;
+  border-radius:5px;
+  border:2px solid var(--bg-0);
+}
+::-webkit-scrollbar-thumb:hover{ background:#28405f; }
+
+/* ---------------- ATMOSPHERE ---------------- */
+
+.bg{
+  position:fixed;
+  inset:0;
+  z-index:-3;
+  background:
+    radial-gradient(ellipse 80% 55% at 50% -10%, rgba(29, 78, 137, .38), transparent 60%),
+    radial-gradient(ellipse 40% 35% at 85% 100%, rgba(24, 84, 110, .25), transparent 70%),
+    linear-gradient(180deg, var(--bg-1) 0%, var(--bg-0) 45%, #030509 100%);
+}
+
+.grid{
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  background-image:
+    linear-gradient(rgba(95, 224, 255, .045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(95, 224, 255, .045) 1px, transparent 1px);
+  background-size:56px 56px;
+  -webkit-mask-image:radial-gradient(ellipse 90% 70% at 50% 0%, #000 20%, transparent 80%);
+          mask-image:radial-gradient(ellipse 90% 70% at 50% 0%, #000 20%, transparent 80%);
+}
+
+.glow{
+  position:fixed;
+  border-radius:50%;
+  filter:blur(130px);
+  pointer-events:none;
+  z-index:-1;
+  animation:drift 14s infinite alternate ease-in-out;
+}
+
+.g1{
+  width:420px; height:420px;
+  background:rgba(35, 130, 190, .22);
+  top:6%; left:-140px;
+}
+
+.g2{
+  width:480px; height:480px;
+  background:rgba(18, 90, 140, .20);
+  bottom:-160px; right:-160px;
+  animation-delay:3s;
+}
+
+@keyframes drift{
+  from{ transform:translate3d(0,0,0); }
+  to{ transform:translate3d(0,50px,0); }
+}
+
+/* ---------------- NAV ---------------- */
+
+nav{
+  position:fixed;
+  top:0; left:0;
+  width:100%;
+  z-index:999;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 6%;
+  background:rgba(4, 7, 14, .55);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+
+.logo{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:1.35rem;
+  letter-spacing:.42em;
+  color:var(--ink);
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo::before{
+  content:'';
+  width:9px; height:9px;
+  background:var(--cyan);
+  box-shadow:0 0 12px var(--cyan-glow), 0 0 4px var(--cyan);
+  animation:beacon 2.6s infinite ease-in-out;
+}
+
+@keyframes beacon{
+  0%, 100%{ opacity:1; }
+  50%{ opacity:.35; }
+}
+
+nav ul{
+  display:flex;
+  align-items:center;
+  gap:38px;
+  list-style:none;
+}
+
+nav ul li{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+nav ul li a{
+  font-family:var(--font-mono);
+  font-size:.78rem;
+  font-weight:500;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  text-decoration:none;
+  color:var(--muted);
+  padding:6px 2px;
+  border-bottom:1px solid transparent;
+  transition:color .25s ease, border-color .25s ease;
+}
+
+nav ul li a:hover{
+  color:var(--cyan);
+  border-bottom-color:var(--cyan);
+}
+
+.nav-user{
+  font-family:var(--font-mono);
+  font-size:.78rem;
+  letter-spacing:.14em;
+  color:var(--cyan);
+  text-transform:uppercase;
+}
+
+/* ---------------- BUTTONS ---------------- */
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:16px 36px;
+  font-family:var(--font-mono);
+  font-size:.82rem;
+  font-weight:600;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  text-decoration:none;
+  border:none;
+  cursor:pointer;
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+}
+
+.btn.primary{
+  background:var(--cyan);
+  color:#04121a;
+  box-shadow:0 0 0 1px var(--cyan), 0 8px 32px rgba(95, 224, 255, .22);
+}
+
+.btn.primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 0 1px var(--cyan), 0 12px 44px rgba(95, 224, 255, .40);
+}
+
+.btn.secondary{
+  background:transparent;
+  color:var(--ink);
+  box-shadow:inset 0 0 0 1px var(--line-strong);
+}
+
+.btn.secondary:hover{
+  transform:translateY(-2px);
+  color:var(--cyan);
+  box-shadow:inset 0 0 0 1px var(--cyan);
+}
+
+.btn:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+  transform:none;
+}
+
+/* ---------------- FOOTER ---------------- */
+
+footer{
+  border-top:1px solid var(--line);
+  padding:36px 6%;
+  text-align:center;
+  font-family:var(--font-mono);
+  font-size:.74rem;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--faint);
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media(max-width:768px){
+  nav{
+    flex-direction:column;
+    gap:16px;
+    padding:16px 6%;
+  }
+  nav ul{ gap:24px; flex-wrap:wrap; justify-content:center; }
+}

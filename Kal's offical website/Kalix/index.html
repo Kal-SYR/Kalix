@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KALIX — Neural Exchange</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/orb.css">
+  <link rel="stylesheet" href="css/chat.css">
+</head>
+<body>
+
+  <!-- BOOT SEQUENCE OVERLAY -->
+  <div class="boot" id="boot">
+    <div class="boot-inner">
+      <div class="boot-logo">KALIX</div>
+      <div class="boot-bar"><span></span></div>
+      <div class="boot-status" id="bootStatus">ESTABLISHING UPLINK…</div>
+    </div>
+  </div>
+
+  <div class="bg"></div>
+  <div class="grid"></div>
+  <div class="glow g1"></div>
+  <div class="glow g2"></div>
+
+  <nav>
+    <a href="index.html" class="logo">KALIX</a>
+    <ul>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="market.html">Market</a></li>
+      <li id="authSlot"><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+      <div class="hero-text">
+        <div class="kicker">Kalix // Neural Exchange</div>
+
+        <h1>The future of digital trading</h1>
+
+        <p>
+          Enter the next-generation stock exchange. Real-time analytics,
+          AI-powered insights and futuristic financial technology
+          designed for elite traders.
+        </p>
+
+        <div class="buttons">
+          <a href="market.html" class="btn primary" id="enterBtn">Enter Market</a>
+          <a href="login.html" class="btn secondary" id="loginBtn">Login</a>
+        </div>
+
+        <dl class="hero-meta">
+          <div class="meta-item">
+            <dt>Latency</dt>
+            <dd>0.4 ms</dd>
+          </div>
+          <div class="meta-item">
+            <dt>Uptime</dt>
+            <dd>99.99%</dd>
+          </div>
+          <div class="meta-item">
+            <dt>Markets</dt>
+            <dd>128</dd>
+          </div>
+          <div class="meta-item">
+            <dt>Scans</dt>
+            <dd>24 / 7</dd>
+          </div>
+        </dl>
+      </div>
+      <!-- KALIX.IO ORB --> 
+      <figure class="hero-visual" id="heroVisual">
+        <span class="scan" aria-hidden="true"></span>
+        <div class="orb-stage" id="orbStage" role="img" aria-label="KALIX neural core — a living AI orb">
+          <div class="orb-ambient" aria-hidden="true"></div>
+          <canvas id="orbCanvas" aria-hidden="true"></canvas>
+        </div>
+        <figcaption>
+          <span class="dot"></span>
+          Core // Online
+          <span class="cap-right">KALIX.IO</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <div class="tape" aria-hidden="true">
+      <div class="tape-track">
+        <span><b>NEON</b> 12,480 <span class="t-up">▲ 12.5%</span></span>
+        <span><b>CYAI</b> 8,920 <span class="t-up">▲ 8.2%</span></span>
+        <span><b>QNTX</b> 15,210 <span class="t-down">▼ 3.4%</span></span>
+        <span><b>HELIX</b> 4,105 <span class="t-up">▲ 2.1%</span></span>
+        <span><b>VOLT</b> 22,870 <span class="t-up">▲ 5.7%</span></span>
+        <span><b>NOVA</b> 9,340 <span class="t-down">▼ 1.2%</span></span>
+        <span><b>NEON</b> 12,480 <span class="t-up">▲ 12.5%</span></span>
+        <span><b>CYAI</b> 8,920 <span class="t-up">▲ 8.2%</span></span>
+        <span><b>QNTX</b> 15,210 <span class="t-down">▼ 3.4%</span></span>
+        <span><b>HELIX</b> 4,105 <span class="t-up">▲ 2.1%</span></span>
+        <span><b>VOLT</b> 22,870 <span class="t-up">▲ 5.7%</span></span>
+        <span><b>NOVA</b> 9,340 <span class="t-down">▼ 1.2%</span></span>
+      </div>
+    </div>
+
+    <div class="panel-head">
+      <h2>Live watchlist</h2>
+      <a href="market.html">Full market →</a>
+    </div>
+
+    <div class="market-panel">
+
+      <div class="card">
+        <h3>Neon Tech <span class="sym">NEON</span></h3>
+        <div class="price">$12,480</div>
+        <div class="green">▲ +12.5%</div>
+        <canvas class="spark" data-trend="up"></canvas>
+      </div>
+
+      <div class="card">
+        <h3>Cyber AI <span class="sym">CYAI</span></h3>
+        <div class="price">$8,920</div>
+        <div class="green">▲ +8.2%</div>
+        <canvas class="spark" data-trend="up"></canvas>
+      </div>
+
+      <div class="card">
+        <h3>Quantum-X <span class="sym">QNTX</span></h3>
+        <div class="price">$15,210</div>
+        <div class="red">▼ -3.4%</div>
+        <canvas class="spark" data-trend="down"></canvas>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer>
+    © 2026 KALIX MARKET — Next-Gen Trading Experience
+  </footer>
+
+  <!-- KALIX AI CHAT -->
+  <div class="kx-chat" id="kxChat">
+    <div class="kx-panel" id="kxPanel" role="dialog" aria-label="KALIX AI chat" aria-hidden="true">
+      <header class="kx-head">
+        <span class="kx-mini-orb" aria-hidden="true"></span>
+        <div class="kx-title">
+          <strong>Kalix AI</strong>
+          <span>Neural assist // online</span>
+        </div>
+        <button class="kx-close" id="kxClose" type="button" aria-label="Close chat">×</button>
+      </header>
+      <div class="kx-log" id="kxLog" aria-live="polite"></div>
+      <form class="kx-form" id="kxForm">
+        <input class="kx-input" id="kxInput" type="text" placeholder="Ask the core…" autocomplete="off" maxlength="400">
+        <button class="kx-send" type="submit" aria-label="Send message">▸</button>
+      </form>
+    </div>
+    <button class="kx-launcher" id="kxLauncher" type="button" aria-expanded="false" aria-controls="kxPanel" aria-label="Open KALIX AI chat">
+      <span class="kx-launcher-core" aria-hidden="true"></span>
+      <span class="kx-launcher-ring" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <script src="js/home.js"></script>
+  <script src="js/orb.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth-nav.js"></script>
+</body>
+</html>
